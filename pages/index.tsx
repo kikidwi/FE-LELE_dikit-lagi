@@ -33,7 +33,7 @@ export default function Login() {
         setPassword(e.target.value)
     }
 
-    const handleApi = (e) => {
+    function handleApi(e){
         e.preventDefault();
         axios.post(apiEndPoint, {
             "grant_type": "",
@@ -96,7 +96,7 @@ export default function Login() {
                         Your personal catfish monitoring
                     </p>
                 </div>
-                <form onSubmit={handleSubmit(handleApi)}>
+                <form onSubmit={handleApi}>
                     <div className={styles.input}>
                         <input onChange={handleUsername} value={username} type="text" placeholder='username' className={styles.username}
                             // {...register("username", {

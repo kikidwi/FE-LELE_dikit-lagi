@@ -14,7 +14,7 @@ import { useForm } from 'react-hook-form'
 
 
 export default function Login() {
-    const { register, formState: { errors }, handleSubmit } = useForm()
+    // const { register, formState: { errors }, handleSubmit } = useForm()
 
     const apiEndPoint = 'https://api.lemes.my.id/auth/login';
     const [username, setUsername] = useState('')
@@ -95,7 +95,7 @@ export default function Login() {
                         Your personal catfish monitoring
                     </p>
                 </div>
-                <form onSubmit={handleSubmit(handleApi)}>
+                <form onSubmit={handleApi}>
                     <div className={styles.input}>
                         <input onChange={handleUsername} value={username} type="text" placeholder='username' className={styles.username}
                             // {...register("username", {
