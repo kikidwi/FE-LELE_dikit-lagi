@@ -60,7 +60,7 @@ export default function Login() {
                 console.log(res.data)
                 if ((username == "admin") && (password == "admin")){
                     alert("anda adalah admin")
-                    router.push('adminmenu')
+                    router.push('')
                 }else{
                     router.push('InformasiKolamLele')
                     console.log(res.data.access_token)

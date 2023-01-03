@@ -1,0 +1,67 @@
+.container {
+    padding: 0 2rem;
+}
+  
+.main {
+    min-height: 100vh;
+    padding: 4rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+}
+
+.textjudul{
+    font-size: medium;
+    font-weight: bold;
+}
+
+.text1{
+    font-size: small;
+}
+
+.kolam1{
+    margin-left: 10px;
+}
+
+.icon{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #DFDFDF;
+    overflow-y: visible;
+}
+
+.iconbar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: black;
+}
+
+.plus{
+    background-color: #C2B2A2;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: white;
+    border-width: 10px;
+    position: relative;
+    bottom: 20px;
+}
+
+.tombolplus{
+    font-size: 35px;
+    text-align: center;
+    position: relative;
+    bottom: 28px;
+}

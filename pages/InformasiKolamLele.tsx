@@ -57,12 +57,13 @@ export default function InformasiKolamLele({token}) {
             .then(res => {
                 alert('data berhasil ditambahkan')
                 console.log(res.data)
-                if (namaKolam.length < 4){
-                    setErrorName("Nama Kolam harus lebih dari 4 karakter")
-                }else{
-                    setErrorName(" ")
-                    Router.push('/menuutama')
-                }
+                Router.push('menuutama')
+                // if (namaKolam.length < 4){
+                //     setErrorName("Nama Kolam harus lebih dari 4 karakter")
+                // }else{
+                //     setErrorName(" ")
+                //     Router.push('/menuutama')
+                // }
             
             })
             .catch(error => { 
