@@ -42,7 +42,7 @@ export default function UserProfile({token}) {
             body: JSON.stringify({})
         })
 
-        router.push('login')
+        router.push('/')
     }
 
     return (

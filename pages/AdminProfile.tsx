@@ -42,7 +42,7 @@ export default function AdminProfile({token}) {
             body: JSON.stringify({})
         })
 
-        router.push('login')
+        router.push('/')
     }
 
     return (

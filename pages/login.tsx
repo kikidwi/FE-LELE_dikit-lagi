@@ -1,3 +1,4 @@
+
 import Head from 'next/head'
 import Image from 'next/image'
 import logo from '../gambar/logo.png'
@@ -14,7 +15,7 @@ import { useForm } from 'react-hook-form'
 
 
 export default function Login() {
-    // const { register, formState: { errors }, handleSubmit } = useForm()
+    const { register, formState: { errors }, handleSubmit } = useForm()
 
     const apiEndPoint = 'https://api.lemes.my.id/auth/login';
     const [username, setUsername] = useState('')
@@ -32,7 +33,7 @@ export default function Login() {
         setPassword(e.target.value)
     }
 
-    const handleApi = (e) => {
+    function handleApi(e){
         e.preventDefault();
         axios.post(apiEndPoint, {
             "grant_type": "",

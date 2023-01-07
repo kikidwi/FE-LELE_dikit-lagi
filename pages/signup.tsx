@@ -68,7 +68,7 @@ export default function signup() {
         .then(res => {
           console.log(res.data)
           setErrorPass(" ")
-          Router.push('login')
+          Router.push('/')
           
          
         })
@@ -93,7 +93,7 @@ export default function signup() {
 
         <main className={styles.main}>
             <div className={styles.arrowback}>
-              <Link href="login">
+              <Link href="/">
                   <p className={styles.back}><FaArrowLeft/> Back</p>
               </Link>
             </div>
