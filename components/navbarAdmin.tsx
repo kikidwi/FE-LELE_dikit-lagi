@@ -15,21 +15,13 @@ function Navbar(){
         <div >
             <main className={styles.main}>
                 <nav className={styles.icon}>
-                    <Link href="menuutama" className={styles.iconbar}>
+                    <Link href="adminmenu" className={styles.iconbar}>
                         <p><FaHome/></p>
                     </Link>
-                    <Link href="userPedoman" className={styles.iconbar}>
+                    <Link href="adminPagePedoman" className={styles.iconbar}>
                         <p><MdLibraryBooks/></p>
                     </Link>
-                    <div className={styles.plus}>
-                        <Link href="informasikolamdanlele" className={styles.tombolplus}>
-                            <p className="mx-auto" style={{marginTop: 25}}><BsPlusLg/></p>
-                        </Link>
-                    </div>
-                    <Link href="notifikasi" className={styles.iconbar}>
-                        <p><FaBell/></p>
-                    </Link>
-                    <Link href="UserProfile" className={styles.iconbar}>
+                    <Link href="AdminProfile" className={styles.iconbar}>
                         <p><GoPerson/></p>
                     </Link>
                 </nav>

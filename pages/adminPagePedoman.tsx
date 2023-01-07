@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Navbar from '../components/navbarUser';
+import Navbar from '../components/navbarAdmin';
 
 export default function Home() {
     const [data, setData] = useState([]);
@@ -52,7 +52,7 @@ export default function Home() {
                         <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" defaultChecked />
                         <label style={{paddingTop: 6, paddingBottom: 6, paddingLeft: 30, paddingRight: 30}} className="btn btn-outline-secondary" htmlFor="btnradio1">Pedoman</label>
 
-                        <input type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off" onClick={() => Router.push('userBerita')}/>
+                        <input type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off" onClick={() => Router.push('adminPageBerita')}/>
                         <label style={{paddingTop: 6, paddingBottom: 6, paddingLeft: 30, paddingRight: 30}}  className="btn btn-outline-secondary" htmlFor="btnradio2">Berita</label>
                     </div>
 

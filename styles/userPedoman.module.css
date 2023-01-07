@@ -63,5 +63,37 @@
     font-size: 35px;
     text-align: center;
     position: relative;
-    bottom: 28px;
+    text-align-last: center;
+    color: black;
 }
+
+.table {
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 0px 10px; 
+    width: 100%;
+    border-collapse:separate;
+    border-style: solid;
+    border-color: black;
+}
+
+
+.bodyTabel {
+    display: block;
+    padding: 10px 50px;
+    background-color: #DFDFDF;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-color: black;
+}
+.td {
+    display: flex;
+    text-align: justify;
+}
+
+.tdJudul{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+

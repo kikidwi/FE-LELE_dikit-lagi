@@ -9,6 +9,7 @@ import Link from 'next/link'
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Navbar from '../components/navbarUser';
 
 export default function notifikasi({token}) {
     const [notif, setNotif] = useState([])
@@ -57,43 +58,8 @@ export default function notifikasi({token}) {
                         )}
                     </tbody>
                 </table>
-                {/* <hr className={styles.hr}/>
-                <div className={styles.notifpakan}>
-                    <p className={styles.textnotif}>Waktu Memberi Pakan</p>
-                    <p className={styles.text1}>Now</p>
-                </div>
-                <hr className={styles.hr}/>
-                <div className={styles.kolam1}>
-                    <p className={styles.text}>Segera Restock Pakan Kolam 1</p>
-                    <p className={styles.text1}>26 May</p>
-                </div>
-                <hr className={styles.hr}/>
-                <div className={styles.kolam2}>
-                    <p className={styles.text}>Segera Restock Pakan Kolam 2</p>
-                    <p className={styles.text1}>22 May</p>
-                </div>
-                <hr className={styles.hr}/> */}
-
-
-                <nav className={styles.icon}>
-                    <Link href="menuutama" className={styles.iconbar}>
-                        <p><FaHome/></p>
-                    </Link>
-                    <Link href="#" className={styles.iconbar}>
-                        <p><MdLibraryBooks/></p>
-                    </Link>
-                    <div className={styles.plus}>
-                        <Link href="informasikolamdanlele" className={styles.tombolplus}>
-                            <p><BsPlusLg/></p>
-                        </Link>
-                    </div>
-                    <Link href="notifikasi" className={styles.iconbar}>
-                        <p><FaBell/></p>
-                    </Link>
-                    <Link href="UserProfile" className={styles.iconbar}>
-                        <p><GoPerson/></p>
-                    </Link>
-                </nav>
+                
+                <Navbar />
             </main>
         </div>
     )

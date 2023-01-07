@@ -13,6 +13,7 @@ import Link from 'next/link'
 import router from 'next/router'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Navbar from '../components/navbarUser';
 
 export default function UserProfile({token}) {
     const [dataUser, setData] = useState(null);
@@ -52,7 +53,7 @@ export default function UserProfile({token}) {
 
             <main className={styles.main}>
                 <div>
-                    <p className={styles.judul}>USER Profile</p>
+                    <p className={styles.judul}>User Profile</p>
                 </div>
 
                 <div >
@@ -83,25 +84,7 @@ export default function UserProfile({token}) {
                 <button  className={styles.logoutButton} onClick={() => handleSubmit()}>LOGOUT</button>
 
 
-                <nav className={styles.icon}>
-                    <Link href="menuutama" className={styles.iconbar}>
-                        <p><FaHome/></p>
-                    </Link>
-                    <Link href="#" className={styles.iconbar}>
-                        <p><MdLibraryBooks/></p>
-                    </Link>
-                    <div className={styles.plus}>
-                        <Link href="informasikolamdanlele" className={styles.tombolplus}>
-                            <p><BsPlusLg/></p>
-                        </Link>
-                    </div>
-                    <Link href="notifikasi" className={styles.iconbar}>
-                        <p><FaBell/></p>
-                    </Link>
-                    <Link href="UserProfile" className={styles.iconbar}>
-                        <p><GoPerson/></p>
-                    </Link>
-                </nav>
+                <Navbar/>
 
             </main>
         </div>

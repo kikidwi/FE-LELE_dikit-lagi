@@ -41,7 +41,6 @@ export default function InformasiKolamLele({token}) {
     function handleApi(e){
         e.preventDefault();
         console.log({namaKolam, jumlahLele, beratLele, stock})
-        console.log({token})
         axios.post(apiEndPoint, {
             "nama_kolam": namaKolam,
             "jumlah_lele": jumlahLele,
@@ -58,12 +57,6 @@ export default function InformasiKolamLele({token}) {
                 alert('data berhasil ditambahkan')
                 console.log(res.data)
                 Router.push('menuutama')
-                // if (namaKolam.length < 4){
-                //     setErrorName("Nama Kolam harus lebih dari 4 karakter")
-                // }else{
-                //     setErrorName(" ")
-                //     Router.push('/menuutama')
-                // }
             
             })
             .catch(error => { 

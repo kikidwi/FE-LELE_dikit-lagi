@@ -43,7 +43,7 @@ export default function Login({token}) {
         .then(res => {
             alert('data berhasil ditambahkan')
             console.log(res.data)
-            Router.push('menuutama')
+            Router.push('adminmenu')
 
         })
         .catch(error => { 
@@ -58,7 +58,7 @@ export default function Login({token}) {
 
         <main className={styles.main}>
             <div className = {styles.AdminMenu}>
-              <p className = {styles.judul}>Admin Pedoman</p>
+              <p className = {styles.judul}>Add Pedoman</p>
               <p className = {styles.berita}>Berita</p>
               <form onSubmit={handleApi}>
                 <div className = {styles.kotak}>

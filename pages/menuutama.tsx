@@ -1,14 +1,13 @@
 import Head from 'next/head'
 import { BsTrashFill } from 'react-icons/bs'
-import { FaHome } from 'react-icons/fa';
+import { AiOutlineSearch } from 'react-icons/ai';
 import { MdLibraryBooks } from 'react-icons/md';
 import { BsPlusLg } from 'react-icons/bs';
-import { FaBell } from 'react-icons/fa';
-import { GoPerson } from 'react-icons/go';
 import styles from '../styles/menuutama.module.css'
 import Link from 'next/link'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Navbar from '../components/navbarUser';
 
 
 export default function menuutama({token}) {
@@ -44,12 +43,37 @@ export default function menuutama({token}) {
                     "Authorization": `Bearer ${token}`
                 }
             })
+            window.location.reload()
             // setData(dataKolam.filter((p) => p.key !== p.key))
         } else {
             console.log("tidak jadi")
         }
     }
-    
+    const [cari, setCari] = useState('')
+    const handlecari = (e) => {
+        setCari(e.target.value)
+    }
+    const handleSearch = (e) =>{
+        e.preventDefault();
+        const res =  axios.get('https://api.lemes.my.id/kolam/info/' + cari, {
+            headers : {
+                "accept": "application/json",
+                "Authorization": `Bearer ${token}`,
+            }
+                
+        })  
+            .then(res => {
+                alert(["Nama Kolam: ", res.data[0].nama_kolam, 
+                "\nJumlah Lele : ", res.data[0].jumlah_lele,
+                "\nBerat Lele : ", res.data[0].berat_lele,
+                "\nStock Pakan : ", res.data[0].stock_pakan])
+                console.log(res.data[0])
+            })
+            .catch(error => { 
+                console.log(error);
+            });
+        
+    }
     return (
         <div>
             <Head>
@@ -57,9 +81,11 @@ export default function menuutama({token}) {
             </Head>
 
             <main className={styles.main}>
-            <div className={styles.MenuUtama}>      
-                <div className={styles.toolsbaratas}> 
-                    <input type="text" placeholder="Search" className={styles.Search}/> 
+            <div className={styles.MenuUtama}>   
+                <div className="d-flex" style={{ position: 'fixed', top: 0 ,backgroundColor: '#D9D9D9', paddingRight: 50, paddingLeft: 60, paddingBottom: 20}}> 
+                    <input onChange={handlecari} type="text" placeholder="Search" className={styles.Search} style={{}}/> 
+                    <button onClick={handleSearch} style={{borderColor: 'transparent', backgroundColor: 'transparent'}}><AiOutlineSearch/></button>
+                    
                 </div>              
                 <div className={styles.restockpakan}>
                     <Link className={styles.restock} href="restockpakan">Pengingat Restock Pakan <BsPlusLg/></Link>
@@ -89,27 +115,8 @@ export default function menuutama({token}) {
                     </tbody>
                 </table>
             </div>
-
-
-                <nav className={styles.icon}>
-                    <Link href="menuutama" className={styles.iconbar}>
-                        <p><FaHome/></p>
-                    </Link>
-                    <Link href="#" className={styles.iconbar}>
-                        <p><MdLibraryBooks/></p>
-                    </Link>
-                    <div className={styles.plus}>
-                        <Link href="informasikolamdanlele" className={styles.tombolplus}>
-                            <p><BsPlusLg/></p>
-                        </Link>
-                    </div>
-                    <Link href="notifikasi" className={styles.iconbar}>
-                        <p><FaBell/></p>
-                    </Link>
-                    <Link href="UserProfile" className={styles.iconbar}>
-                        <p><GoPerson/></p>
-                    </Link>
-                </nav>
+            
+            <Navbar />
             </main>
         </div>
     )

@@ -32,7 +32,7 @@ export default function restockpakan({token}) {
             }
         })
             .then(res => {
-                alert('data berhasil ditambahkan')
+                alert('Restock Berhasil Dinyalakan')
                 console.log(res)
                 Router.push('menuutama')
             })

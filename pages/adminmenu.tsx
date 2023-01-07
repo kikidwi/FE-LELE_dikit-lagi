@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import { ImHome } from 'react-icons/im'
+import { MdLibraryBooks } from 'react-icons/md';
 import { BsPencilFill } from 'react-icons/bs';
 import { BsFillPersonFill } from 'react-icons/bs';
 import styles from '../styles/adminmenu.module.css'
 import Link from 'next/link'
+import Navbar from '../components/navbarAdmin';
 
 export default function adminmenu() {
   return (
@@ -15,23 +17,14 @@ export default function adminmenu() {
             <div className={styles.Adminmenu}>
                 <p className={styles.judul}>Admin Menu</p>
                 <div className={styles.pedoman}>
-                    <Link className={styles.text} href="">Tambah Pedoman </Link>
+                    <Link className={styles.text} href="adminPedoman">Tambah Pedoman </Link>
                 </div>
                 <div className={styles.berita}>
-                    <Link className={styles.text} href="">Tambah Berita </Link>
+                    <Link className={styles.text} href="adminBerita">Tambah Berita </Link>
                 </div>
             </div>
-            <nav className={styles.icon}>
-                <Link href="adminmenu" className={styles.iconbar}>
-                    <p><ImHome/></p>
-                </Link>
-                <Link href="#" className={styles.iconbar}>
-                    <p><BsPencilFill/></p>
-                </Link>
-                <Link href="AdminProfile" className={styles.iconbar}>
-                    <p><BsFillPersonFill/></p>
-                </Link>
-            </nav>
+     
+            <Navbar/>
         </main>
     </div>
   )

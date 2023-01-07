@@ -15,9 +15,11 @@
 }
 
 .notifikasi{
+    
     font-weight: bold;
 }
 .NamePage{
+    margin-top: 50px;
     font-weight: bold;
     font-size: 20px;
 }
@@ -102,9 +104,7 @@
     bottom: 28px;
 }
 
-.table {
 
-}
 
 .tr {
     display: block;
