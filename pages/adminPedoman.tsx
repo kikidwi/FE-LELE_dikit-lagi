@@ -10,6 +10,7 @@ import { FaArrowLeft } from 'react-icons/fa'
 import axios from "axios";
 import { useState, useEffect} from 'react';
 import Router from 'next/router';
+import Navbar from '../components/navbarAdmin';
 
 export default function Login({token}) {
 
@@ -66,10 +67,10 @@ export default function Login({token}) {
               <p className = {styles.berita}>Berita</p>
               <form onSubmit={handleApi}>
                 <div className = {styles.kotak}>
-                    <input onChange={handleJudul} type="text" placeholder="Judul Berita" className={styles.kontenberita}/>
+                    <input onChange={handleJudul} type="text" placeholder="Judul Pedoman" className={styles.kontenberita}/>
                     <hr/>
                     <div className ={styles.inputfile}>
-                      <textarea onChange={handleIsi} name="isi" placeholder='Isi Berita' className={styles.fileberita} />
+                      <textarea onChange={handleIsi} name="isi" placeholder='Isi Pedoman' className={styles.fileberita} />
                     </div>
                   </div>
                   <div className={styles.tombol}>
@@ -79,17 +80,7 @@ export default function Login({token}) {
             </div>
 
             
-            <nav className={styles.icon}>
-                <Link href="#" className={styles.iconbar}>
-                    <p><FaHome/></p>
-                </Link>
-                <Link href="#" className={styles.iconbar}>
-                    <p><MdLibraryBooks/></p>
-                </Link>
-                <Link href="UserProfile" className={styles.iconbar}>
-                    <p><GoPerson/></p>
-                </Link>
-            </nav>
+            <Navbar/>
       </main>
     </div>
   )

@@ -15,9 +15,26 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Navbar from '../components/navbarAdmin';
+import { useState, useEffect } from 'react'
 
-export default function userBerita({berita}) {
-    console.log({berita})
+export default function userBerita() {
+    const [berita, setData] = useState([]);
+    useEffect(() => { 
+        async function getData() {
+            try {
+                const {data: res} = await axios.get('https://api.lemes.my.id/beritapedoman/berita', {
+                    
+                })
+                setData(res);
+                console.log(res); 
+            }catch(error){
+                console.log(error)
+            }
+             
+        }
+        getData();
+    }, []);
+
     const Router = useRouter()
     return (
         <div className={styles.container}>
@@ -67,14 +84,3 @@ export default function userBerita({berita}) {
 }
 
 
-export async function getStaticProps() {
-    const response = await axios.get('https://api.lemes.my.id/beritapedoman/berita')
-    const berita = response.data
-  
-    // Kembalikan data sebagai properti statis
-    return {
-      props: {
-        berita,
-      },
-    }
-  }

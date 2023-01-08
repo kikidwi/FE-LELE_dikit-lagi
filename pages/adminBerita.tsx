@@ -11,6 +11,7 @@ import axios from "axios";
 import { useState, useEffect} from 'react';
 import Router from 'next/router';
 import { FaArrowLeft } from 'react-icons/fa'
+import Navbar from '../components/navbarAdmin';
 
 export default function Login({token}) {
 
@@ -79,18 +80,7 @@ export default function Login({token}) {
               </form>   
             </div>
 
-            
-            <nav className={styles.icon}>
-                <Link href="#" className={styles.iconbar}>
-                    <p><FaHome/></p>
-                </Link>
-                <Link href="#" className={styles.iconbar}>
-                    <p><MdLibraryBooks/></p>
-                </Link>
-                <Link href="UserProfile" className={styles.iconbar}>
-                    <p><GoPerson/></p>
-                </Link>
-            </nav>
+            <Navbar/>
       </main>
     </div>
   )

@@ -56,11 +56,8 @@ export default function detailBerita({news}){
               <div>
                 <div className={styles.arrowback}>
                   <button className={styles.back} onClick={() => Router.back()} style={{backgroundColor : 'transparent', borderColor : 'transparent'}}><FaArrowLeft/> Back</button>
-                  {/* <Link href="/previous-page">
-                    <p className={styles.back}><FaArrowLeft/> Back</p>
-                  </Link> */}
                 </div>
-                <p className={styles.textjudul}>{news.judul_berita_dan_pedoman}</p>
+                <p className={styles.textjudul} style={{width: 350}}>{news.judul_berita_dan_pedoman}</p>
                 <p className={styles.texttanggal}>{news.tanggal_berita_dan_pedoman} • Admin</p>
                 <Image className = {styles.gambarr}
                   src={news.thumbnail || profilePic}
@@ -68,7 +65,7 @@ export default function detailBerita({news}){
                   height={170}
                   alt="gambar lele"
                 />
-                <p className={styles.isiberita} style={{width: 300}}>{news.isi_berita_dan_pedoman}</p>
+                <p className={styles.isiberita} style={{width: 350, textAlign: 'justify'}}>{news.isi_berita_dan_pedoman}</p>
               </div>
 
               {/* <nav className={styles.icon}>

@@ -95,7 +95,10 @@ export default function signup() {
               />
 
               <p className={styles.text}>password</p>
-              <input onChange={(e) => handle(e)} id="password" value={data.password} type="password" className={styles.password} placeholder="password" required/>
+              <input onChange={(e) => handle(e)} id="password" value={data.password} type="password" className={styles.password} placeholder="password" 
+              required
+              minLength={4}
+              maxLength={8}/>
               
               <br />
 
