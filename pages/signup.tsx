@@ -75,7 +75,7 @@ export default function signup() {
               <input onChange={(e) => handle(e)} id="fullName" value={data.fullName} type="text" className={styles.nama} placeholder="nama" 
                 required
                 minLength={4}
-                maxLength={8}
+                maxLength={20}
               />
               
 
