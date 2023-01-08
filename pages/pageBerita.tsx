@@ -14,8 +14,9 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Page Berita</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       </Head>
-      <main className={styles.main}>
+      <main className={styles.main} style={{maxHeight: 100, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <div className={styles.pageBerita}>
           <div className={styles.text}>
             <p className={styles.textjudul}>Cara Budidaya Ikan Lele Bagi Pemula di Kolam Terpal</p>

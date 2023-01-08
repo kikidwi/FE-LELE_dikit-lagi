@@ -37,9 +37,10 @@ export default function notifikasi({token}) {
         <div>
             <Head>
                 <title >notifikasi</title>
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
             </Head>
 
-            <main className={styles.main}>
+            <main className={styles.main} style={{maxHeight: 1000 ,display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <div>
                     <p className={styles.NamePage}>Notifikasi</p>
                 </div>

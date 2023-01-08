@@ -19,11 +19,6 @@ export default function InformasiKolamLele({token}) {
     const [beratLele, setBeratLele] = useState('')
     const [stock, setStock] = useState('')
 
-    const [errorJml, setErrorJml] = useState('')
-    const [errorBerat, setErrorBerat] = useState('')
-    const [errorName, setErrorName] = useState('')
-    const [errorTAT, setErrorTAT] = useState('')
-
     const handleNama = (e) => {
         setNamaKolam(e.target.value)
     }
@@ -61,6 +56,7 @@ export default function InformasiKolamLele({token}) {
             })
             .catch(error => { 
                 console.log(error);
+                alert("nama kolam sudah ada")
             });
     }
     
@@ -68,9 +64,10 @@ export default function InformasiKolamLele({token}) {
         <div>
             <Head>
                 <title>Informasi Kolam Dan Lele</title>
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
             </Head>
 
-            <main className={styles.main}>
+            <main className={styles.main} style={{maxHeight: 100, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <div className={styles.arrowback}>
                     <Link href="login">
                         <p className={styles.back}><FaArrowLeft/> Back</p>
@@ -86,20 +83,23 @@ export default function InformasiKolamLele({token}) {
 
                 <form className={styles.formInput}>
                     <p className={styles.text}>Nama Kolam</p>
-                    <input onChange={handleNama} id="NamaKolam" value={namaKolam} type="text" placeholder='Input Here' className={styles.inputText}/>
-                    {errorName && <p className="error">{errorName}</p>}
+                    <input onChange={handleNama} id="NamaKolam" value={namaKolam} type="text" placeholder='Input Here' className={styles.inputText} 
+                        required
+                        minLength={4}
+                        maxLength={20}/>
+                    
 
                     <p className={styles.text}>Berat Lele</p>
-                    <input onChange={handleBerat} id="BeratLele" value={beratLele} type="number" placeholder='Input Here' className={styles.inputText}/>
-                    {errorBerat && <p className="error">{errorBerat}</p>}
+                    <input onChange={handleBerat} id="BeratLele" value={beratLele} type="number" placeholder='Input Here' className={styles.inputText} required/>
+                    
 
                     <p className={styles.text}>Jumlah Lele</p>
-                    <input onChange={handleJumlah} id="JumlahLele" value={jumlahLele} type="number" placeholder='Input Here' className={styles.inputText}/>
-                    {errorJml && <p className="error">{errorJml}</p>}
+                    <input onChange={handleJumlah} id="JumlahLele" value={jumlahLele} type="number" placeholder='Input Here' className={styles.inputText} required/>
+                    
 
                     <p className={styles.text}>Stock Pakan</p>
-                    <input onChange={handleStock} id="stockPakan" value={stock} type="number" placeholder='Input Here' className={styles.inputDate} />
-                    {errorTAT && <p className="error">{errorTAT}</p>}
+                    <input onChange={handleStock} id="stockPakan" value={stock} type="number" placeholder='Input Here' className={styles.inputDate} required/>
+                    
 
                     <input onClick={handleApi} type="submit" placeholder='SUBMIT' className={styles.submitButton}/>
                     

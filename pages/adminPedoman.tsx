@@ -6,7 +6,7 @@ import { MdLibraryBooks } from 'react-icons/md';
 // import { FaBell } from 'react-icons/fa';
 import { GoPerson } from 'react-icons/go';
 import Link from 'next/link'
-
+import { FaArrowLeft } from 'react-icons/fa'
 import axios from "axios";
 import { useState, useEffect} from 'react';
 import Router from 'next/router';
@@ -54,10 +54,14 @@ export default function Login({token}) {
     <div>
         <Head>
             <title>Add Pedoman</title>
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         </Head>
 
-        <main className={styles.main}>
+        <main className={styles.main} style={{maxHeight: 100, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <div className = {styles.AdminMenu}>
+              <div className={styles.arrowback}>
+                  <button className={styles.back} onClick={() => Router.back()} style={{backgroundColor : 'transparent', borderColor : 'transparent'}}><FaArrowLeft/> Back</button>
+              </div>
               <p className = {styles.judul}>Add Pedoman</p>
               <p className = {styles.berita}>Berita</p>
               <form onSubmit={handleApi}>

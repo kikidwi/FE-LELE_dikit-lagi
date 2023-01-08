@@ -115,3 +115,16 @@
     position: relative;
     bottom: 28px;
 }
+
+.arrowback{
+    margin-bottom: 30px;
+}
+.back{
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+    margin-left: 1px;
+    position: relative;
+    right: 10px;
+   
+}

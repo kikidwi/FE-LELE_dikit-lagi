@@ -25,57 +25,22 @@ export default function signup() {
 
   function Submit(e){
     e.preventDefault();
-    if (data.fullName.length == 0 && data.username.length == 0 && data.password.length == 0){
-      setErrorName("Nama Tidak Boleh kosong")
-      setErrorusername("Username Tidak Boleh Kosong")
-      setErrorPass("password Tidak Boleh Kosong")
-    }else if (data.fullName.length != 0 && data.username.length == 0 && data.password.length == 0){
-      setErrorName("")
-      setErrorusername("Username Tidak Boleh Kosong")
-      setErrorPass("password Tidak Boleh Kosong")
-    }else if (data.fullName.length == 0 && data.username.length != 0 && data.password.length == 0){
-      setErrorName("Nama Tidak Boleh kosong")
-      setErrorusername("")
-      setErrorPass("password Tidak Boleh Kosong")
-    }else if (data.fullName.length == 0 && data.username.length == 0 && data.password.length != 0){
-      setErrorName("Nama Tidak Boleh kosong")
-      setErrorusername("Username Tidak Boleh Kosong")
-      setErrorPass("")
-    }else if (data.fullName.length < 4 && data.username.length < 4 && data.password.length < 4){
-      setErrorName("Nama harus lebih dari 4 karakter")
-      setErrorusername("Username harus lebih dari 4 karakter")
-      setErrorPass("password harus lebih dari 4 karakter")
-    }else if (data.fullName.length > 4 && data.username.length < 4 && data.password.length < 4){
-      setErrorName("")
-      setErrorusername("Username harus lebih dari 4 karakter")
-      setErrorPass("password harus lebih dari 4 karakter")
-    }else if (data.fullName.length < 4 && data.username.length > 4 && data.password.length < 4){
-      setErrorName("Nama harus lebih dari 4 karakter")
-      setErrorusername("")
-      setErrorPass("password harus lebih dari 4 karakter")
-    }else if (data.fullName.length < 4 && data.username.length < 4 && data.password.length > 4){
-      setErrorName("Nama harus lebih dari 4 karakter")
-      setErrorusername("Username harus lebih dari 4 karakter")
-      setErrorPass("")
-
-    }else{
-      axios.post(apiEndPoint, {
-        "full_name": data.fullName,
-        "email": data.email,
-        "username": data.username,
-        "password": data.password
+    axios.post(apiEndPoint, {
+      "full_name": data.fullName,
+      "email": data.email,
+      "username": data.username,
+      "password": data.password
+    })
+      .then(res => {
+        console.log(res.data)
+        setErrorPass(" ")
+        Router.push('/')
       })
-        .then(res => {
-          console.log(res.data)
-          setErrorPass(" ")
-          Router.push('/')
-          
-         
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
+      .catch(error => {
+        alert("username atau email sudah digunakan")
+        console.log(error);
+      });
+    
   }
 
   function handle(e) {
@@ -89,6 +54,7 @@ export default function signup() {
     <div>
         <Head>
             <title>Sign Up</title>
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         </Head>
 
         <main className={styles.main}>
@@ -106,19 +72,31 @@ export default function signup() {
             <form onSubmit={(e) => Submit(e)} className={styles.formInput} >
               
               <p className={styles.text}>Nama</p>
-              <input onChange={(e) => handle(e)} id="fullName" value={data.fullName} type="text" className={styles.nama} placeholder="nama" />
-              {errorName && <p className="error">{errorName}</p>}
+              <input onChange={(e) => handle(e)} id="fullName" value={data.fullName} type="text" className={styles.nama} placeholder="nama" 
+                required
+                minLength={4}
+                maxLength={8}
+              />
+              
 
               <p className={styles.text}>Username</p>
-              <input onChange={(e) => handle(e)} id="username" value={data.username} type="text" className={styles.username} placeholder="username"/>
-              {errorusername && <p className="error">{errorusername}</p>}
+              <input onChange={(e) => handle(e)} id="username" value={data.username} type="text" className={styles.username} placeholder="username"
+                required
+                minLength={4}
+                maxLength={8}
+              />
+              
 
               <p className={styles.text}>Email</p>
-              <input onChange={(e) => handle(e)} id="email" value={data.email} type="email" className={styles.username} placeholder="email"/>
+              <input onChange={(e) => handle(e)} id="email" value={data.email} type="email" className={styles.username} placeholder="email"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+
+              />
 
               <p className={styles.text}>password</p>
-              <input onChange={(e) => handle(e)} id="password" value={data.password} type="password" className={styles.password} placeholder="password" />
-              {errorPass && <p className="error">{errorPass}</p>}
+              <input onChange={(e) => handle(e)} id="password" value={data.password} type="password" className={styles.password} placeholder="password" required/>
+              
               <br />
 
 

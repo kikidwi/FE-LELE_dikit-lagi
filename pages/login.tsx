@@ -15,14 +15,13 @@ import { useForm } from 'react-hook-form'
 
 
 export default function Login() {
-    const { register, formState: { errors }, handleSubmit } = useForm()
+
 
     const apiEndPoint = 'https://api.lemes.my.id/auth/login';
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    // const [errorUsername, seteErorUsername] = useState('')
-    // const [errorPass, setErrorPass] = useState('')
+
 
     const handleUsername = (e) => {
         setUsername(e.target.value)
@@ -76,7 +75,7 @@ export default function Login() {
         <div>
             <Head>
                 <title>Login</title>
-                
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
             </Head>
 
             <main className={styles.main}>
@@ -99,37 +98,17 @@ export default function Login() {
                 <form onSubmit={handleApi}>
                     <div className={styles.input}>
                         <input onChange={handleUsername} value={username} type="text" placeholder='username' className={styles.username}
-                            // {...register("username", {
-                            //       required: 'Username is required',
-                            //       minLength: {
-                            //         value: 4,
-                            //         message: 'Username must have at least 4 characters'
-                            //       },
-                                
-                            //       maxLength: {
-                            //         value: 6,
-                            //         message: 'Username must be less than 6 characters'
-                            //       }
-                                
-                            //     })}
+                            required
+                            minLength={4}
+                            maxLength={10}
                         />
-                        {/* {errors.username &&  errors.username.message} */}
+                
 
                         <input onChange={handlePassword} id="PasswordPP" value={password} type="password" placeholder='password' className={styles.password}
-                            // {...register("password", {
-                            //     required: 'Password is required',
-                            //     minLength: {
-                            //         value: 4,
-                            //         message: 'Password must have at least 4 characters'
-                            //     }, 
-                            //     maxLength : {
-                            //         value: 6,
-                            //         message: 'Password must be less than 6 characters'
-                            //     }
-                            // })}
+                            required
+                            minLength={4}
+                            maxLength={8}
                         />
-                        {/* {errors.password && errors.password.message} */}
-                        
 
                         <input type="submit" placeholder='SUBMIT' className={styles.loginButton} />
                     </div>

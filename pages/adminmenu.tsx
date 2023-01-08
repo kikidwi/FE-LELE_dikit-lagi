@@ -12,8 +12,9 @@ export default function adminmenu() {
     <div>
         <Head>
             <title>adminmenu</title>
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         </Head>
-        <main className={styles.main}>
+        <main className={styles.main} style={{maxHeight: 100, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <div className={styles.Adminmenu}>
                 <p className={styles.judul}>Admin Menu</p>
                 <div className={styles.pedoman}>

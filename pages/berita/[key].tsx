@@ -52,7 +52,7 @@ export default function detailBerita({news}){
             <Head>
                 <title>Page Berita</title>
             </Head>
-            <main className={styles.main}>
+            <main className={styles.main} style={{maxHeight: 1000 ,display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <div>
                 <div className={styles.arrowback}>
                   <button className={styles.back} onClick={() => Router.back()} style={{backgroundColor : 'transparent', borderColor : 'transparent'}}><FaArrowLeft/> Back</button>
@@ -63,8 +63,10 @@ export default function detailBerita({news}){
                 <p className={styles.textjudul}>{news.judul_berita_dan_pedoman}</p>
                 <p className={styles.texttanggal}>{news.tanggal_berita_dan_pedoman} • Admin</p>
                 <Image className = {styles.gambarr}
-                  src={profilePic}
-                  alt="Picture of the author"
+                  src={news.thumbnail || profilePic}
+                  width={170}
+                  height={170}
+                  alt="gambar lele"
                 />
                 <p className={styles.isiberita}>{news.isi_berita_dan_pedoman}</p>
               </div>

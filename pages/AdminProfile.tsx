@@ -13,7 +13,7 @@ import Link from 'next/link'
 import router from 'next/router'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Navbar from '../components/navbarUser';
+import Navbar from '../components/navbarAdmin';
 
 export default function AdminProfile({token}) {
     const [dataUser, setData] = useState(null);
@@ -49,6 +49,7 @@ export default function AdminProfile({token}) {
         <div>
             <Head>
                 <title>Admin Profile</title>
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
             </Head>
 
             <main className={styles.main}>

@@ -11,6 +11,7 @@ import Link from 'next/link'
 import axios from "axios";
 import { useState, useEffect} from 'react';
 import Router from 'next/router';
+import Navbar from '../components/navbarUser';
 
 export default function informasikolamdanlele({token}) {
     const apiEndPoint = 'https://api.lemes.my.id/kolam/inputdata';
@@ -20,10 +21,6 @@ export default function informasikolamdanlele({token}) {
     const [beratLele, setBeratLele] = useState('')
     const [stock, setStock] = useState('')
 
-    const [errorJml, setErrorJml] = useState('')
-    const [errorBerat, setErrorBerat] = useState('')
-    const [errorName, setErrorName] = useState('')
-    const [errorTAT, setErrorTAT] = useState('')
 
     const handleNama = (e) => {
         setNamaKolam(e.target.value)
@@ -58,13 +55,7 @@ export default function informasikolamdanlele({token}) {
             .then(res => {
                 alert('data berhasil ditambahkan')
                 console.log(res.data)
-                if (namaKolam.length < 4){
-                    setErrorName("Nama Kolam harus lebih dari 4 karakter")
-                }else{
-                    setErrorName(" ")
-                    Router.push('/menuutama')
-                }
-            
+                Router.push('menuutama')         
             })
             .catch(error => { 
                 console.log(error);
@@ -72,11 +63,12 @@ export default function informasikolamdanlele({token}) {
     }
     return (
         <div>
-            <Head>
+                <Head>
                     <title>Informasi Kolam Dan Lele</title>
+                    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
                 </Head>
 
-                <main className={styles.main}>
+                <main className={styles.main} style={{maxHeight: 100, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                     <div className={styles.arrowback}>
                         <Link href="menuutama">
                             <p className={styles.back}><FaArrowLeft/> Back</p>
@@ -90,44 +82,30 @@ export default function informasikolamdanlele({token}) {
 
                     <form className={styles.formInput}>
                         <p className={styles.text}>Nama Kolam</p>
-                        <input onChange={handleNama} id="NamaKolam" value={namaKolam} type="text" placeholder='Input Here' className={styles.inputText}/>
-                        {errorName && <p className="error">{errorName}</p>}
+                        <input onChange={handleNama} id="NamaKolam" value={namaKolam} type="text" placeholder='Input Here' className={styles.inputText}
+                            required
+                            minLength={4}
+                            maxLength={20}
+                        />
+                        
 
                         <p className={styles.text}>Berat Lele</p>
-                        <input onChange={handleBerat} id="BeratLele" value={beratLele} type="number" placeholder='Input Here' className={styles.inputText}/>
-                        {errorBerat && <p className="error">{errorBerat}</p>}
+                        <input onChange={handleBerat} id="BeratLele" value={beratLele} type="number" placeholder='Input Here' className={styles.inputText} required/>
+                       
 
                         <p className={styles.text}>Jumlah Lele</p>
-                        <input onChange={handleJumlah} id="JumlahLele" value={jumlahLele} type="number" placeholder='Input Here' className={styles.inputText}/>
-                        {errorJml && <p className="error">{errorJml}</p>}
+                        <input onChange={handleJumlah} id="JumlahLele" value={jumlahLele} type="number" placeholder='Input Here' className={styles.inputText} required/>
+                      
 
                         <p className={styles.text}>Stock Pakan</p>
-                        <input onChange={handleStock} id="stockPakan" value={stock} type="number" placeholder='Input Here' className={styles.inputDate} />
-                        {errorTAT && <p className="error">{errorTAT}</p>}
+                        <input onChange={handleStock} id="stockPakan" value={stock} type="number" placeholder='Input Here' className={styles.inputDate} required/>
+                        
 
                         <input onClick={handleApi} type="submit" placeholder='SUBMIT' className={styles.submitButton}/>
                         
                     </form>
 
-                <nav className={styles.icon}>
-                    <Link href="menuutama" className={styles.iconbar}>
-                        <p><FaHome/></p>
-                    </Link>
-                    <Link href="#" className={styles.iconbar}>
-                        <p><MdLibraryBooks/></p>
-                    </Link>
-                    <div className={styles.plus}>
-                        <Link href="menuutama" className={styles.tombolplus}>
-                            <p><GrClose/></p>
-                        </Link>
-                    </div>
-                    <Link href="notifikasi" className={styles.iconbar}>
-                        <p><FaBell/></p>
-                    </Link>
-                    <Link href="UserProfile" className={styles.iconbar}>
-                        <p><GoPerson/></p>
-                    </Link>
-                </nav>
+               <Navbar/>
             </main>
         </div>
     )

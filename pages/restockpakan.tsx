@@ -46,9 +46,10 @@ export default function restockpakan({token}) {
         <div>
             <Head>
                 <title>Restockpakan</title>
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
             </Head>
 
-            <main className={styles.main}>
+            <main className={styles.main} style={{maxHeight: 100, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <div className={styles.arrowback}>
                     <Link href="menuutama">
                         <p className={styles.back}><FaArrowLeft/> Back</p>

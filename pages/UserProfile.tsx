@@ -49,9 +49,10 @@ export default function UserProfile({token}) {
         <div>
             <Head>
                 <title>User Profile</title>
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
             </Head>
 
-            <main className={styles.main}>
+            <main className={styles.main} style={{maxHeight: 100, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <div>
                     <p className={styles.judul}>User Profile</p>
                 </div>

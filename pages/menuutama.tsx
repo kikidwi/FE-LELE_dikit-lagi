@@ -75,15 +75,16 @@ export default function menuutama({token}) {
         
     }
     return (
-        <div>
+        <div col-sm>
             <Head>
                 <title>Menu Utama</title>
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
             </Head>
 
-            <main className={styles.main}>
+            <main className={styles.main} style={{maxHeight: 1500,display: 'flex', flexDirection: 'column', alignItems: 'center'}}> 
             <div className={styles.MenuUtama}>   
                 <div className="d-flex" style={{ position: 'fixed', top: 0 ,backgroundColor: '#D9D9D9', paddingRight: 50, paddingLeft: 60, paddingBottom: 20}}> 
-                    <input onChange={handlecari} type="text" placeholder="Search" className={styles.Search} style={{}}/> 
+                    <input onChange={handlecari} type="text" placeholder="Search" className={styles.Search} style={{}} required/> 
                     <button onClick={handleSearch} style={{borderColor: 'transparent', backgroundColor: 'transparent'}}><AiOutlineSearch/></button>
                     
                 </div>              
