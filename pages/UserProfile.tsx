@@ -58,7 +58,7 @@ export default function UserProfile({token}) {
                 </div>
 
                 <div >
-                    <div className={styles.kotak}>
+                    <div className={styles.kotak} style={{paddingTop: 10, paddingLeft: 10}}>
                         <Image
                             src={profil}
                             alt="profil"
@@ -69,7 +69,7 @@ export default function UserProfile({token}) {
                         <div>
                             {dataUser && (
                                 <div>
-                                    <p className={styles.text}>Full name: {dataUser.full_name}</p>
+                                    <p className={styles.text}>Name: {dataUser.full_name}</p>
                                     <p className={styles.text}>Username: {dataUser.username}</p>
                                     <p className={styles.text}>Email: {dataUser.email}</p>
                                 </div>

@@ -109,6 +109,7 @@ export default function menuutama({token}) {
                                 <td className={styles.td}>Nama Kolam : {dataKolam.nama_kolam}</td>
                                 <td className={styles.td}>Jumlah Lele : {dataKolam.jumlah_lele}</td>
                                 <td className={styles.td}>Berat Lele : {dataKolam.berat_lele}</td>
+                                <td className={styles.td}>Stock Pakan : {dataKolam.stock_pakan}</td>
                                 <td className={styles.td}>Jumlah Pakan Harian : {dataKolam.jumlah_pakan_harian}</td>
                                 <td className={styles.td}>Waktu Panen : {dataKolam.waktu_panen}</td>
                             </tr>

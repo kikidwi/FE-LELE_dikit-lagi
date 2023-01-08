@@ -68,7 +68,9 @@ export default function Login() {
 
             })
             .catch(error => {
-                    console.log(error);
+                console.log(error);
+                alert("Username Tidak terdaftar")
+                alert(error.code)
             });    
     }
     

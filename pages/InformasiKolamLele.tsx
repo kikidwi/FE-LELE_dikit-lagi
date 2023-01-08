@@ -36,6 +36,7 @@ export default function InformasiKolamLele({token}) {
     function handleApi(e){
         e.preventDefault();
         console.log({namaKolam, jumlahLele, beratLele, stock})
+        console.log({token})
         axios.post(apiEndPoint, {
             "nama_kolam": namaKolam,
             "jumlah_lele": jumlahLele,
@@ -51,12 +52,12 @@ export default function InformasiKolamLele({token}) {
             .then(res => {
                 alert('data berhasil ditambahkan')
                 console.log(res.data)
-                Router.push('menuutama')
-            
+                Router.push('/menuutama')         
             })
             .catch(error => { 
                 console.log(error);
-                alert("nama kolam sudah ada")
+                alert(error.code)
+                
             });
     }
     

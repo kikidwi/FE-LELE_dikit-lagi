@@ -61,6 +61,7 @@ export default function informasikolamdanlele({token}) {
                 console.log(error);
             });
     }
+    
     return (
         <div>
                 <Head>

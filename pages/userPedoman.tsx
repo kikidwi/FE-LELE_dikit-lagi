@@ -68,7 +68,7 @@ export default function Home() {
                        {data.map((data, index) =>
                             <tr key={data.key} className={styles.bodyTabel}>
                                 <td className={styles.tdJudul}>{data.judul_berita_dan_pedoman}</td>
-                                <td className={styles.td}>{data.isi_berita_dan_pedoman}</td>
+                                <td className={styles.td} style={{width: 200}}>{data.isi_berita_dan_pedoman}</td>
                             </tr>
                         )}
                     </tbody>

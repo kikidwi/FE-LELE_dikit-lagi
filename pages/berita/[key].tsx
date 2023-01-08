@@ -68,7 +68,7 @@ export default function detailBerita({news}){
                   height={170}
                   alt="gambar lele"
                 />
-                <p className={styles.isiberita}>{news.isi_berita_dan_pedoman}</p>
+                <p className={styles.isiberita} style={{width: 400}}>{news.isi_berita_dan_pedoman}</p>
               </div>
 
               {/* <nav className={styles.icon}>
