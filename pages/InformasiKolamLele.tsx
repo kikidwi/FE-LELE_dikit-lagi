@@ -89,7 +89,6 @@ export default function InformasiKolamLele({token}) {
                         minLength={4}
                         maxLength={20}/>
                     
-
                     <p className={styles.text}>Berat Lele</p>
                     <input onChange={handleBerat} id="BeratLele" value={beratLele} type="number" placeholder='Input Here' className={styles.inputText} required/>
                     

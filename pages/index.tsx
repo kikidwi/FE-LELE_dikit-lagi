@@ -21,9 +21,6 @@ export default function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    // const [errorUsername, seteErorUsername] = useState('')
-    // const [errorPass, setErrorPass] = useState('')
-
     const handleUsername = (e) => {
         setUsername(e.target.value)
     }
